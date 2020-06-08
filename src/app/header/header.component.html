@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand mr-auto">Chat.io</a>
+    <ul class="navbar-nav" *ngIf="isAuthenticated">
+        <li class="nav-item">
+            <a class="nav-link" (click)="onLogout()">Logout</a>
+        </li>
+    </ul>
+</nav>

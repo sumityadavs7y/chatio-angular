@@ -1,0 +1,45 @@
+<notifier-container></notifier-container>
+<div class="d-flex justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="card my-5">
+            <div class="card-body px-5">
+                <h4 class="card-title">REGISTER</h4>
+                <hr>
+                <form [formGroup]="registerForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Enter full name"
+                            name="name" id="name">
+                        <div *ngIf="!registerForm.controls.name.valid && registerForm.controls.name.dirty"
+                            class="invalid text-danger">Min length 5 required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="Enter email"
+                            name="email" id="email">
+                        <div *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.dirty"
+                            class="invalid text-danger">Enter valid email.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password"
+                            placeholder="Enter password" name="password" id="password">
+                        <div *ngIf="!registerForm.controls.password.valid && registerForm.controls.password.dirty"
+                            class="invalid text-danger">Min length 6 required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpassword">Confirm password</label>
+                        <input type="password" class="form-control" formControlName="cpassword"
+                            placeholder="Confirm password" name="cpassword" id="cpassword">
+                        <div *ngIf="!registerForm.controls.cpassword.valid && registerForm.controls.cpassword.dirty"
+                            class="invalid text-danger">Password do not match.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading"><span
+                            *ngIf="isLoading" class="spinner-border spinner-border-sm"></span> Register</button>
+                </form>
+                <hr>
+                Already a member? <a class="auth-link" routerLink="/login">login here</a>
+            </div>
+        </div>
+    </div>
+</div>

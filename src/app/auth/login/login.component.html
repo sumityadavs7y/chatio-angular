@@ -1,0 +1,34 @@
+<notifier-container></notifier-container>
+<div class="d-flex justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="card my-5">
+            <div class="card-body px-5">
+                <h4 class="card-title">LOGIN</h4>
+                <hr>
+                <form [formGroup]="loginForm">
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" formControlName="email" class="form-control"
+                            [ngClass]="(!loginForm.controls.email.valid && loginForm.controls.email.dirty)?'invalid':''"
+                            placeholder="Enter email" name="email" id="email">
+                        <div *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.dirty"
+                            class="invalid text-danger">Enter valid email.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" class="form-control"
+                            [ngClass]="(!loginForm.controls.password.valid && loginForm.controls.password.dirty)?'invalid':''"
+                            placeholder="Enter password" name="password" id="password">
+                        <div *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty"
+                            class="invalid text-danger">Password required.</div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading"> <span
+                            *ngIf="isLoading" class="spinner-border spinner-border-sm"></span> Login</button>
+                </form>
+                <hr>
+                Not a member? <a class="auth-link" routerLink="/register">Register here</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </form> -->
