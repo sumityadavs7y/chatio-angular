@@ -1,0 +1,47 @@
+.chat-box{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;}
+.contact-info
+{
+position: absolute;
+height: 50px;
+top: 0;
+left: 0;
+right: 0;
+text-align:center;
+display:block;
+background: blue;
+}
+.message-box
+{
+   position: absolute;
+   top: 50px;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   overflow:scroll;
+   margin-bottom: 50px;
+   overflow-x: hidden;             
+}
+.chat-form
+{
+     position: absolute;
+     height: 50px;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     text-align:center;
+     display:block;
+     background: blue;
+}
+
+li{
+   text-decoration: none;
+   display: block;
+   height: 20px;
+   width: 100%;
+   padding: 20px;
+
+}

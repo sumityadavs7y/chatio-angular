@@ -85,14 +85,11 @@ export class AuthService {
         const user = new User(email, userId, accessToken, refreshToken, expirationDate);
         this.user.next(user);
         this.autoLogout(expiresIn * 60 * 1000);
-        console.log('storing');
-        console.log(JSON.stringify(user));
         localStorage.setItem('userData', JSON.stringify(user));
         // localStorage.setItem('userData', JSON.stringify(user));
     }
 
     private handleError(errorRes: HttpErrorResponse) {
-        console.log(errorRes);
         let errorMessage = 'An unknown error occured!';
         if (!errorRes.message) {
             return throwError(errorMessage);

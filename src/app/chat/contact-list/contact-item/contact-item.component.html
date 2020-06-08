@@ -1,1 +1,7 @@
-<p>contact-item works!</p>
+<a class="list-group-item list-group-item-action" [routerLink]="[contact._id]">
+    <div style="word-wrap: break-word;">
+        <h5>{{ contact.name }}</h5>
+        <p class="text-secondary">{{ contact.email }}</p>
+
+    </div>
+</a>

@@ -4,6 +4,7 @@ import { ChatComponent } from './chat.component';
 import { SelectChatComponent } from './select-chat/select-chat.component';
 import { ContactChatComponent } from './contact-chat/contact-chat.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
     {
@@ -15,7 +16,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class ChatRoutingModule {

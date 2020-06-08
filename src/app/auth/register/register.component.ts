@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.authService.signup(this.registerForm.value.name, this.registerForm.value.email, this.registerForm.value.password).subscribe(
       resData => {
-        console.log(resData);
         this.isLoading = false;
         this.router.navigate(['/login'], { queryParams: { 'registered': true } });
         this.notifierService.notify("success", 'Registered');
