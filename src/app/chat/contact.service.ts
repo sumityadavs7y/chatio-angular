@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { tap, map } from 'rxjs/operators';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class ContactService {
     contactsChanged = new Subject<Contact[]>();
     private contacts: Contact[] = [];
@@ -28,6 +28,16 @@ export class ContactService {
 
     getContacts() {
         return this.contacts.slice();
+    }
+
+    addContact(email: String) {
+        return this.http.post<Contact>(environment.baseApi + 'chat/contact',
+            {
+                email: email
+            }).pipe(map(contact => {
+                this.contacts.push(contact);
+                this.contactsChanged.next(this.contacts);
+            }));
     }
 
 }

@@ -91,12 +91,9 @@ export class AuthService {
 
     private handleError(errorRes: HttpErrorResponse) {
         let errorMessage = 'An unknown error occured!';
-        if (!errorRes.message) {
+        if (!errorRes.error || !errorRes.error.message) {
             return throwError(errorMessage);
         }
-        if (errorRes.status == 422) {
-            return throwError('Wrong username or password');
-        }
-        return throwError(errorRes.message)
+        return throwError(errorRes.error.message)
     }
 }

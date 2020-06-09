@@ -1,38 +1,39 @@
 <div class="chat-box">
-    <div class="contact-info"> Header Content</div>
-    <div class="message-box">
-        <ul>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-            <li>Hello World!!! </li>
-        </ul>
+    <div class="contact-info bg-dark p-3">
+        <h5>{{contactInfo.name}}</h5>
     </div>
-    <div class="chat-form">I am Footer
+    <div class="message-box bg-light">
+        <div class="chatbox-container">
+            <div class="chatbox-content">
+                <div *ngFor="let message of contactInfo['messages'];">
+                    <div *ngIf="message.sent; else yourmessage">
+                        <div class="mine messages">
+                            <div class="message last">
+                                {{message.message}}
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #yourmessage>
+                        <div class="yours messages">
+                            <div class="message">
+                                {{message.message}}
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="chat-form bg-dark">
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-inline">
+                    <div class="p-1 form-group">
+                        <input type="text" class="form-control" placeholder="Enter message" #messageEl>
+                    </div>
+                    <button class="btn btn-primary" type="button" (click)="sendMessage()">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
