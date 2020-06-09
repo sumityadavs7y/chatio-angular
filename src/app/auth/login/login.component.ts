@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       resData => {
         this.isLoading = false;
-        console.log('navigating');
         this.router.navigate(['/chat']);
       },
       errorMessage => {

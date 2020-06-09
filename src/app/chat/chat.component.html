@@ -1,12 +1,8 @@
-<div class="d-flex justify-content-center">
-    <div class="p-0 m-0 col-sm-12 col-md-10 col-lg-8">
-        <div class="row my-5 chat-card">
-            <div class="col-sm-4 h-100 p-0">
-                <app-contact-list></app-contact-list>
-            </div>
-            <div class="col-sm-8 p-0 bg-light">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+<div class="row my-4" style="height: 90vh;">
+    <div class="col-sm-4 bg-secondary p-0" style="max-height: 90vh;">
+        <app-contact-list></app-contact-list>
+    </div>
+    <div class="col-sm-8 p-0 bg-warning">
+        <router-outlet></router-outlet>
     </div>
 </div>
